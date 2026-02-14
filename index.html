@@ -1,0 +1,3436 @@
+
+
+```html
+<!DOCTYPE html>
+<html lang="hi-en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Ghazipur Seva Setu - गाज़ीपुर सेवा सेतु | Local Service Marketplace</title>
+<style>
+/* ============================================
+   CSS RESET & BASE STYLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --saffron: #FF9933;
+    --saffron-dark: #E8850A;
+    --blue: #1a73e8;
+    --blue-dark: #1557b0;
+    --blue-light: #e8f0fe;
+    --white: #ffffff;
+    --gray-50: #f8f9fa;
+    --gray-100: #f1f3f4;
+    --gray-200: #e8eaed;
+    --gray-300: #dadce0;
+    --gray-400: #bdc1c6;
+    --gray-500: #9aa0a6;
+    --gray-600: #80868b;
+    --gray-700: #5f6368;
+    --gray-800: #3c4043;
+    --gray-900: #202124;
+    --green: #0f9d58;
+    --green-dark: #0b8043;
+    --red: #d93025;
+    --red-light: #fce8e6;
+    --yellow: #f9ab00;
+    --whatsapp: #25D366;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.1);
+    --shadow-md: 0 2px 8px rgba(0,0,0,0.12);
+    --shadow-lg: 0 4px 16px rgba(0,0,0,0.15);
+    --shadow-xl: 0 8px 32px rgba(0,0,0,0.18);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --transition: all 0.3s ease;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans Devanagari', sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-900);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   HEADER & NAVIGATION
+   ============================================ */
+.header {
+    background: linear-gradient(135deg, var(--saffron) 0%, var(--saffron-dark) 100%);
+    color: white;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.logo-text h1 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.logo-text p {
+    font-size: 0.7rem;
+    opacity: 0.9;
+    line-height: 1.2;
+}
+
+.header-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.header-btn {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.header-btn:hover, .header-btn:active {
+    background: rgba(255,255,255,0.35);
+}
+
+.header-btn.active-user {
+    background: white;
+    color: var(--saffron-dark);
+    font-weight: 600;
+}
+
+/* Navigation Bar */
+.nav-bar {
+    background: rgba(0,0,0,0.1);
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 8px;
+}
+
+.nav-bar::-webkit-scrollbar { display: none; }
+
+.nav-item {
+    flex-shrink: 0;
+    padding: 10px 16px;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: var(--transition);
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.nav-item:hover, .nav-item.active {
+    color: white;
+    border-bottom-color: white;
+    background: rgba(255,255,255,0.1);
+}
+
+.nav-item .nav-icon {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+
+/* ============================================
+   LOCATION SELECTOR BAR
+   ============================================ */
+.location-bar {
+    background: var(--blue);
+    color: white;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.location-bar:hover {
+    background: var(--blue-dark);
+}
+
+.location-bar .loc-icon {
+    font-size: 1.2rem;
+}
+
+.location-bar .loc-text {
+    flex: 1;
+}
+
+.location-bar .loc-text strong {
+    display: block;
+    font-size: 0.85rem;
+}
+
+.location-bar .loc-text span {
+    opacity: 0.85;
+    font-size: 0.72rem;
+}
+
+.location-bar .loc-change {
+    background: rgba(255,255,255,0.2);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+}
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+.main-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+/* ============================================
+   SEARCH BAR
+   ============================================ */
+.search-section {
+    padding: 12px 16px;
+    background: white;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: var(--gray-100);
+    border-radius: 25px;
+    padding: 10px 16px;
+    gap: 10px;
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.search-box:focus-within {
+    border-color: var(--blue);
+    background: white;
+    box-shadow: 0 0 0 3px var(--blue-light);
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    background: none;
+    font-size: 0.95rem;
+    outline: none;
+    color: var(--gray-900);
+}
+
+.search-box input::placeholder {
+    color: var(--gray-500);
+}
+
+.search-box .search-icon {
+    font-size: 1.2rem;
+    color: var(--gray-500);
+}
+
+/* ============================================
+   PAGES / SECTIONS
+   ============================================ */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* ============================================
+   EMERGENCY PANEL
+   ============================================ */
+.emergency-panel {
+    background: linear-gradient(135deg, #d32f2f, #b71c1c);
+    margin: 12px 16px;
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.emergency-panel h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.emergency-btn {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: var(--radius-sm);
+    padding: 10px 6px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.emergency-btn:hover, .emergency-btn:active {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.02);
+}
+
+.emergency-btn .em-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.emergency-btn .em-name {
+    font-size: 0.7rem;
+    display: block;
+    line-height: 1.2;
+}
+
+.emergency-btn .em-number {
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: block;
+}
+
+/* ============================================
+   CATEGORY GRID
+   ============================================ */
+.section-title {
+    padding: 16px 16px 8px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 8px 16px 16px;
+}
+
+.category-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 12px 6px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+}
+
+.category-card:hover, .category-card:active {
+    border-color: var(--blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.category-card.selected {
+    border-color: var(--blue);
+    background: var(--blue-light);
+}
+
+.category-card .cat-icon {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.category-card .cat-name {
+    font-size: 0.65rem;
+    color: var(--gray-700);
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+/* ============================================
+   SERVICE LISTINGS
+   ============================================ */
+.listings-section {
+    padding: 0 16px 16px;
+}
+
+.listing-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 14px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    transition: var(--transition);
+    position: relative;
+}
+
+.listing-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.listing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.listing-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-provider {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.badge-seeker {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.listing-category {
+    font-size: 0.72rem;
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.listing-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 4px;
+}
+
+.listing-desc {
+    font-size: 0.82rem;
+    color: var(--gray-600);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.listing-location {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    margin-bottom: 10px;
+}
+
+.listing-price {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 10px;
+}
+
+.listing-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-call {
+    flex: 1;
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: var(--transition);
+}
+
+.btn-call:hover { background: var(--blue-dark); }
+
+.btn-whatsapp {
+    flex: 1;
+    background: var(--whatsapp);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: var(--transition);
+}
+
+.btn-whatsapp:hover { background: #1da851; }
+
+.listing-owner-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 4px;
+}
+
+.btn-edit, .btn-delete {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.btn-edit {
+    background: var(--blue-light);
+    color: var(--blue);
+}
+
+.btn-delete {
+    background: var(--red-light);
+    color: var(--red);
+}
+
+.btn-edit:hover { background: var(--blue); color: white; }
+.btn-delete:hover { background: var(--red); color: white; }
+
+/* ============================================
+   FORMS & MODALS
+   ============================================ */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: flex-end;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.modal-content {
+    background: white;
+    width: 100%;
+    max-width: 480px;
+    max-height: 92vh;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease;
+}
+
+.modal-header {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.modal-header h2 {
+    font-size: 1.1rem;
+    color: var(--gray-900);
+}
+
+.modal-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: var(--gray-100);
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    background: var(--gray-300);
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 6px;
+}
+
+.form-group label .hindi {
+    font-weight: 400;
+    color: var(--gray-500);
+    font-size: 0.78rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    color: var(--gray-900);
+    background: white;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.form-control:focus {
+    border-color: var(--blue);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--blue-light);
+}
+
+select.form-control {
+    appearance: auto;
+    cursor: pointer;
+}
+
+textarea.form-control {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.radio-group {
+    display: flex;
+    gap: 10px;
+}
+
+.radio-option {
+    flex: 1;
+    position: relative;
+}
+
+.radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.radio-option label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.radio-option input[type="radio"]:checked + label {
+    border-color: var(--blue);
+    background: var(--blue-light);
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary:hover { background: var(--blue-dark); }
+
+.btn-primary:disabled {
+    background: var(--gray-400);
+    cursor: not-allowed;
+}
+
+.btn-saffron {
+    background: var(--saffron);
+}
+
+.btn-saffron:hover { background: var(--saffron-dark); }
+
+.btn-secondary {
+    width: 100%;
+    padding: 14px;
+    background: white;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 8px;
+}
+
+.btn-secondary:hover {
+    background: var(--blue-light);
+}
+
+/* ============================================
+   FLOATING ACTION BUTTON
+   ============================================ */
+.fab {
+    position: fixed;
+    bottom: 80px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+    background: var(--saffron);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-xl);
+    z-index: 900;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fab:hover {
+    background: var(--saffron-dark);
+    transform: scale(1.1);
+}
+
+/* ============================================
+   BOTTOM TAB BAR
+   ============================================ */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px;
+    background: white;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    z-index: 950;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+}
+
+.bottom-nav-item {
+    flex: 1;
+    padding: 8px 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--gray-500);
+    border-top: 3px solid transparent;
+}
+
+.bottom-nav-item:hover, .bottom-nav-item.active {
+    color: var(--blue);
+    border-top-color: var(--blue);
+    background: var(--blue-light);
+}
+
+.bottom-nav-item .bnav-icon {
+    font-size: 1.3rem;
+    display: block;
+}
+
+.bottom-nav-item .bnav-text {
+    font-size: 0.62rem;
+    font-weight: 600;
+    display: block;
+    margin-top: 2px;
+}
+
+/* ============================================
+   HOSPITAL CARDS
+   ============================================ */
+.hospital-list {
+    padding: 0 16px 16px;
+}
+
+.hospital-card {
+    background: white;
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--gray-200);
+}
+
+.hospital-card .hosp-icon {
+    font-size: 1.8rem;
+    width: 44px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.hospital-card .hosp-info {
+    flex: 1;
+}
+
+.hospital-card .hosp-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gray-800);
+}
+
+.hospital-card .hosp-area {
+    font-size: 0.72rem;
+    color: var(--gray-500);
+}
+
+/* ============================================
+   FILTER BAR
+   ============================================ */
+.filter-bar {
+    display: flex;
+    overflow-x: auto;
+    padding: 8px 16px;
+    gap: 8px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.filter-bar::-webkit-scrollbar { display: none; }
+
+.filter-chip {
+    flex-shrink: 0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    border: 1.5px solid var(--gray-300);
+    background: white;
+    color: var(--gray-700);
+    transition: var(--transition);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.filter-chip:hover, .filter-chip.active {
+    border-color: var(--blue);
+    background: var(--blue-light);
+    color: var(--blue);
+}
+
+/* ============================================
+   STATS BAR
+   ============================================ */
+.stats-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 12px 16px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    text-align: center;
+    border: 1px solid var(--gray-200);
+}
+
+.stat-card .stat-number {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--blue);
+}
+
+.stat-card .stat-label {
+    font-size: 0.65rem;
+    color: var(--gray-500);
+    margin-top: 2px;
+}
+
+/* ============================================
+   PROFILE PAGE
+   ============================================ */
+.profile-header {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    padding: 24px 20px;
+    color: white;
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 70px;
+    height: 70px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 10px;
+    border: 3px solid rgba(255,255,255,0.3);
+}
+
+.profile-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.profile-location {
+    font-size: 0.8rem;
+    opacity: 0.85;
+    margin-top: 4px;
+}
+
+.profile-role {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 12px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    font-size: 0.75rem;
+}
+
+.profile-menu {
+    padding: 16px;
+}
+
+.profile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: white;
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid var(--gray-200);
+}
+
+.profile-menu-item:hover {
+    background: var(--gray-50);
+}
+
+.profile-menu-item .pm-icon {
+    font-size: 1.3rem;
+    width: 36px;
+    text-align: center;
+}
+
+.profile-menu-item .pm-text {
+    flex: 1;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.profile-menu-item .pm-arrow {
+    color: var(--gray-400);
+}
+
+/* ============================================
+   TOAST NOTIFICATION
+   ============================================ */
+.toast {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--gray-900);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    z-index: 3000;
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+    box-shadow: var(--shadow-xl);
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--gray-500);
+}
+
+.empty-state .empty-icon {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.empty-state p {
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   LOCATION SELECTOR PAGE
+   ============================================ */
+.location-selector {
+    padding: 16px;
+}
+
+.location-selector .step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.step-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--gray-300);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.step-dot.active {
+    background: var(--blue);
+}
+
+.step-dot.done {
+    background: var(--green);
+}
+
+.step-line {
+    width: 30px;
+    height: 2px;
+    background: var(--gray-300);
+}
+
+.step-line.done {
+    background: var(--green);
+}
+
+/* ============================================
+   NO LOGIN BANNER
+   ============================================ */
+.login-banner {
+    background: linear-gradient(135deg, var(--blue-light), #dbeafe);
+    margin: 12px 16px;
+    border-radius: var(--radius-md);
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #bfdbfe;
+}
+
+.login-banner h3 {
+    font-size: 1rem;
+    color: var(--blue-dark);
+    margin-bottom: 4px;
+}
+
+.login-banner p {
+    font-size: 0.8rem;
+    color: var(--gray-600);
+    margin-bottom: 12px;
+}
+
+.login-banner .btn-primary {
+    width: auto;
+    display: inline-block;
+    padding: 10px 24px;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (min-width: 481px) {
+    .main-container {
+        border-left: 1px solid var(--gray-200);
+        border-right: 1px solid var(--gray-200);
+    }
+    .header, .location-bar, .search-section {
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Quick scroll top button hidden state */
+.hidden { display: none !important; }
+
+/* Additional utility */
+.text-center { text-align: center; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mb-8 { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+
+/* Info box */
+.info-box {
+    background: var(--blue-light);
+    border: 1px solid #bfdbfe;
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    font-size: 0.82rem;
+    color: var(--blue-dark);
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+/* Welcome banner */
+.welcome-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 12px 16px;
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.welcome-banner h2 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+}
+
+.welcome-banner p {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     HEADER
+     ============================================ -->
+<header class="header" style="max-width:480px;margin:0 auto;">
+    <div class="header-top">
+        <div class="logo-section">
+            <div class="logo-icon">🙏</div>
+            <div class="logo-text">
+                <h1>गाज़ीपुर सेवा सेतु</h1>
+                <p>Ghazipur Local Service Marketplace</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="header-btn" id="loginHeaderBtn" onclick="openModal('loginModal')">👤 Login</button>
+        </div>
+    </div>
+    <div class="nav-bar">
+        <div class="nav-item active" data-page="home" onclick="switchPage('home')">
+            <span class="nav-icon">🏠</span> Home
+        </div>
+        <div class="nav-item" data-page="services" onclick="switchPage('services')">
+            <span class="nav-icon">🔍</span> Services
+        </div>
+        <div class="nav-item" data-page="emergency" onclick="switchPage('emergency')">
+            <span class="nav-icon">🚨</span> Emergency
+        </div>
+        <div class="nav-item" data-page="myPosts" onclick="switchPage('myPosts')">
+            <span class="nav-icon">📋</span> My Posts
+        </div>
+        <div class="nav-item" data-page="profile" onclick="switchPage('profile')">
+            <span class="nav-icon">👤</span> Profile
+        </div>
+    </div>
+</header>
+
+<!-- Location Bar -->
+<div class="location-bar" style="max-width:480px;margin:0 auto;" onclick="openModal('locationModal')">
+    <span class="loc-icon">📍</span>
+    <div class="loc-text">
+        <strong id="currentLocationText">Ghazipur, Uttar Pradesh</strong>
+        <span id="currentSubLocation">Thana & Village chunein / Select your area</span>
+    </div>
+    <span class="loc-change">Badlein ▼</span>
+</div>
+
+<!-- Search Section -->
+<div class="search-section" style="max-width:480px;margin:0 auto;">
+    <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Seva khojein... (Search services, milk, doctor, etc.)" oninput="handleSearch()">
+    </div>
+</div>
+
+<!-- ============================================
+     MAIN CONTAINER
+     ============================================ -->
+<div class="main-container">
+
+    <!-- ======================== HOME PAGE ======================== -->
+    <div class="page active" id="page-home">
+
+        <!-- Welcome Banner -->
+        <div class="welcome-banner">
+            <h2>🙏 नमस्कार! गाज़ीपुर में आपका स्वागत है</h2>
+            <p>अपने थाना / गाँव की सेवाएँ खोजें | Find local services near you</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-number" id="statProviders">0</div>
+                <div class="stat-label">Seva Providers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="statListings">0</div>
+                <div class="stat-label">Total Listings</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">27</div>
+                <div class="stat-label">Thana Areas</div>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="section-title">📦 Seva Categories / सेवा श्रेणियाँ</div>
+        <div class="category-grid" id="categoryGrid">
+            <!-- Dynamically filled -->
+        </div>
+
+        <!-- Emergency Quick Access -->
+        <div class="emergency-panel">
+            <h3>🚨 Emergency / आपातकालीन नंबर</h3>
+            <div class="emergency-grid">
+                <a href="tel:100" class="emergency-btn">
+                    <span class="em-icon">👮</span>
+                    <span class="em-name">Police</span>
+                    <span class="em-number">100</span>
+                </a>
+                <a href="tel:108" class="emergency-btn">
+                    <span class="em-icon">🚑</span>
+                    <span class="em-name">Ambulance</span>
+                    <span class="em-number">108</span>
+                </a>
+                <a href="tel:101" class="emergency-btn">
+                    <span class="em-icon">🚒</span>
+                    <span class="em-name">Fire</span>
+                    <span class="em-number">101</span>
+                </a>
+                <a href="tel:1091" class="emergency-btn">
+                    <span class="em-icon">👩</span>
+                    <span class="em-name">Women Help</span>
+                    <span class="em-number">1091</span>
+                </a>
+                <a href="tel:1098" class="emergency-btn">
+                    <span class="em-icon">👶</span>
+                    <span class="em-name">Child Help</span>
+                    <span class="em-number">1098</span>
+                </a>
+                <a href="tel:102" class="emergency-btn">
+                    <span class="em-icon">🏥</span>
+                    <span class="em-name">Medical</span>
+                    <span class="em-number">102</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Recent Listings -->
+        <div class="section-title">🕐 Recent Listings / हाल की सेवाएँ</div>
+        <div class="listings-section" id="homeListings">
+            <!-- Dynamically filled -->
+        </div>
+    </div>
+
+    <!-- ======================== SERVICES PAGE ======================== -->
+    <div class="page" id="page-services">
+        <div class="section-title">🔍 Browse Services / सेवाएँ खोजें</div>
+
+        <!-- Category Filter -->
+        <div class="filter-bar" id="filterBar">
+            <span class="filter-chip active" data-cat="all" onclick="filterByCategory('all')">🏷️ All</span>
+            <!-- Dynamically filled -->
+        </div>
+
+        <!-- Type Filter -->
+        <div class="filter-bar">
+            <span class="filter-chip active" data-type="all" onclick="filterByType('all')">All Posts</span>
+            <span class="filter-chip" data-type="provider" onclick="filterByType('provider')">🟢 Providers</span>
+            <span class="filter-chip" data-type="seeker" onclick="filterByType('seeker')">🟠 Seekers</span>
+        </div>
+
+        <div class="listings-section" id="serviceListings">
+            <!-- Dynamically filled -->
+        </div>
+    </div>
+
+    <!-- ======================== EMERGENCY PAGE ======================== -->
+    <div class="page" id="page-emergency">
+        <div class="section-title">🚨 Emergency Numbers / आपातकालीन नंबर</div>
+
+        <div class="emergency-panel" style="margin:12px 16px;">
+            <h3>📞 Important Helplines</h3>
+            <div class="emergency-grid">
+                <a href="tel:100" class="emergency-btn">
+                    <span class="em-icon">👮</span>
+                    <span class="em-name">Police</span>
+                    <span class="em-number">100</span>
+                </a>
+                <a href="tel:108" class="emergency-btn">
+                    <span class="em-icon">🚑</span>
+                    <span class="em-name">Ambulance</span>
+                    <span class="em-number">108</span>
+                </a>
+                <a href="tel:102" class="emergency-btn">
+                    <span class="em-icon">🤰</span>
+                    <span class="em-name">Pregnancy</span>
+                    <span class="em-number">102</span>
+                </a>
+                <a href="tel:101" class="emergency-btn">
+                    <span class="em-icon">🚒</span>
+                    <span class="em-name">Fire</span>
+                    <span class="em-number">101</span>
+                </a>
+                <a href="tel:1091" class="emergency-btn">
+                    <span class="em-icon">👩‍⚖️</span>
+                    <span class="em-name">Women Helpline</span>
+                    <span class="em-number">1091</span>
+                </a>
+                <a href="tel:1098" class="emergency-btn">
+                    <span class="em-icon">👶</span>
+                    <span class="em-name">Child Helpline</span>
+                    <span class="em-number">1098</span>
+                </a>
+                <a href="tel:181" class="emergency-btn">
+                    <span class="em-icon">👩</span>
+                    <span class="em-name">Women SOS</span>
+                    <span class="em-number">181</span>
+                </a>
+                <a href="tel:112" class="emergency-btn">
+                    <span class="em-icon">🆘</span>
+                    <span class="em-name">Emergency</span>
+                    <span class="em-number">112</span>
+                </a>
+                <a href="tel:1076" class="emergency-btn">
+                    <span class="em-icon">🦠</span>
+                    <span class="em-name">COVID Help</span>
+                    <span class="em-number">1076</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="section-title">🏥 Ghazipur Hospitals / अस्पताल</div>
+        <div class="hospital-list">
+            <div class="hospital-card">
+                <div class="hosp-icon">🏥</div>
+                <div class="hosp-info">
+                    <div class="hosp-name">District Hospital Ghazipur (जिला अस्पताल)</div>
+                    <div class="hosp-area">📍 Ghazipur City, Sadar Area</div>
+                </div>
+            </div>
+            <div class="hospital-card">
+                <div class="hosp-icon">🏥</div>
+                <div class="hosp-info">
+                    <div class="hosp-name">CHC Zamania (सामुदायिक स्वास्थ्य केंद्र)</div>
+                    <div class="hosp-area">📍 Zamania / Jamania Block</div>
+                </div>
+            </div>
+            <div class="hospital-card">
+                <div class="hosp-icon">🏥</div>
+                <div class="hosp-info">
+                    <div class="hosp-name">CHC Kasimabad (सामुदायिक स्वास्थ्य केंद्र)</div>
+                    <div class="hosp-area">📍 Kasimabad Block</div>
+                </div>
+            </div>
+            <div class="hospital-card">
+                <div class="hosp-icon">🏥</div>
+                <div class="hosp-info">
+                    <div class="hosp-name">CHC Saidpur (सामुदायिक स्वास्थ्य केंद्र)</div>
+                    <div class="hosp-area">📍 Saidpur Block</div>
+                </div>
+            </div>
+            <div class="hospital-card">
+                <div class="hosp-icon">🏥</div>
+                <div class="hosp-info">
+                    <div class="hosp-name">CHC Mohammadabad (सामुदायिक स्वास्थ्य केंद्र)</div>
+                    <div class="hosp-area">📍 Mohammadabad Block</div>
+                </div>
+            </div>
+            <div class="hospital-card">
+                <div class="hosp-icon">🏥</div>
+                <div class="hosp-info">
+                    <div class="hosp-name">PHC Dildarnagar (प्राथमिक स्वास्थ्य केंद्र)</div>
+                    <div class="hosp-area">📍 Dildarnagar Town</div>
+                </div>
+            </div>
+            <div class="hospital-card">
+                <div class="hosp-icon">🏥</div>
+                <div class="hosp-info">
+                    <div class="hosp-name">PHC Nandganj (प्राथमिक स्वास्थ्य केंद्र)</div>
+                    <div class="hosp-area">📍 Nandganj Block</div>
+                </div>
+            </div>
+            <div class="hospital-card">
+                <div class="hosp-icon">🏥</div>
+                <div class="hosp-info">
+                    <div class="hosp-name">PHC Gahamar (प्राथमिक स्वास्थ्य केंद्र)</div>
+                    <div class="hosp-area">📍 Gahamar Area</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================== MY POSTS PAGE ======================== -->
+    <div class="page" id="page-myPosts">
+        <div class="section-title">📋 Meri Posts / My Posts</div>
+        <div id="myPostsContainer" class="listings-section">
+            <!-- Dynamic -->
+        </div>
+    </div>
+
+    <!-- ======================== PROFILE PAGE ======================== -->
+    <div class="page" id="page-profile">
+        <div id="profileContent">
+            <!-- Dynamic -->
+        </div>
+    </div>
+
+</div>
+
+<!-- ============================================
+     FLOATING ACTION BUTTON
+     ============================================ -->
+<button class="fab" id="fabBtn" onclick="openPostModal()" title="Post a Service / Need">➕</button>
+
+<!-- ============================================
+     BOTTOM NAVIGATION
+     ============================================ -->
+<div class="bottom-nav">
+    <div class="bottom-nav-item active" data-page="home" onclick="switchPage('home')">
+        <span class="bnav-icon">🏠</span>
+        <span class="bnav-text">Home</span>
+    </div>
+    <div class="bottom-nav-item" data-page="services" onclick="switchPage('services')">
+        <span class="bnav-icon">🔍</span>
+        <span class="bnav-text">Services</span>
+    </div>
+    <div class="bottom-nav-item" data-page="emergency" onclick="switchPage('emergency')">
+        <span class="bnav-icon">🚨</span>
+        <span class="bnav-text">Emergency</span>
+    </div>
+    <div class="bottom-nav-item" data-page="myPosts" onclick="switchPage('myPosts')">
+        <span class="bnav-icon">📋</span>
+        <span class="bnav-text">My Posts</span>
+    </div>
+    <div class="bottom-nav-item" data-page="profile" onclick="switchPage('profile')">
+        <span class="bnav-icon">👤</span>
+        <span class="bnav-text">Profile</span>
+    </div>
+</div>
+
+<!-- ============================================
+     TOAST
+     ============================================ -->
+<div class="toast" id="toast">Message</div>
+
+<!-- ============================================
+     MODALS
+     ============================================ -->
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="loginModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>🔐 Login / Register</h2>
+            <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+        </div>
+        <div class="modal-body">
+            <div class="info-box">
+                📱 अपना मोबाइल नंबर डालें | Enter your mobile number to login or register
+            </div>
+
+            <div id="loginForm">
+                <div class="form-group">
+                    <label>Mobile Number <span class="hindi">मोबाइल नंबर</span></label>
+                    <input type="tel" class="form-control" id="loginMobile" placeholder="10-digit mobile number" maxlength="10" pattern="[0-9]{10}">
+                </div>
+                <button class="btn-primary" onclick="handleLogin()">🔍 Check / आगे बढ़ें</button>
+            </div>
+
+            <div id="registerForm" style="display:none;">
+                <div class="form-group">
+                    <label>Full Name <span class="hindi">पूरा नाम</span></label>
+                    <input type="text" class="form-control" id="regName" placeholder="Apna naam likhein">
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number <span class="hindi">मोबाइल नंबर</span></label>
+                    <input type="tel" class="form-control" id="regMobile" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Role <span class="hindi">आप क्या हैं?</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="roleProvider" name="regRole" value="provider">
+                            <label for="roleProvider">🟢 Seva Provider<br><small>सेवा प्रदाता</small></label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="roleSeeker" name="regRole" value="seeker" checked>
+                            <label for="roleSeeker">🟠 Seva Seeker<br><small>सेवा चाहने वाला</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Thana <span class="hindi">थाना चुनें</span></label>
+                    <select class="form-control" id="regThana" onchange="onThanaChange('reg')">
+                        <option value="">-- Thana Chunein --</option>
+                    </select>
+                </div>
+                <div class="form-group hidden" id="regCustomThanaGroup">
+                    <label>Your Thana Name <span class="hindi">अपने थाने का नाम</span></label>
+                    <input type="text" class="form-control" id="regCustomThana" placeholder="Thana ka naam likhein">
+                </div>
+                <div class="form-group">
+                    <label>Village <span class="hindi">गाँव चुनें</span></label>
+                    <select class="form-control" id="regVillage" onchange="onVillageChange('reg')">
+                        <option value="">-- Pehle Thana chunein --</option>
+                    </select>
+                </div>
+                <div class="form-group hidden" id="regCustomVillageGroup">
+                    <label>Your Village Name <span class="hindi">अपने गाँव का नाम</span></label>
+                    <input type="text" class="form-control" id="regCustomVillage" placeholder="Gaon ka naam likhein">
+                </div>
+                <div class="form-group" id="regCategoryGroup" style="display:none;">
+                    <label>Service Category <span class="hindi">सेवा श्रेणी</span></label>
+                    <select class="form-control" id="regCategory">
+                        <option value="">-- Category Chunein --</option>
+                    </select>
+                </div>
+                <button class="btn-primary btn-saffron" onclick="handleRegister()">✅ Register / पंजीकरण करें</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- LOCATION MODAL -->
+<div class="modal-overlay" id="locationModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>📍 Location Chunein</h2>
+            <button class="modal-close" onclick="closeModal('locationModal')">✕</button>
+        </div>
+        <div class="modal-body">
+            <div class="location-selector">
+                <div class="step-indicator">
+                    <div class="step-dot active" id="locStep1">1</div>
+                    <div class="step-line" id="locLine1"></div>
+                    <div class="step-dot" id="locStep2">2</div>
+                    <div class="step-line" id="locLine2"></div>
+                    <div class="step-dot" id="locStep3">3</div>
+                </div>
+
+                <div class="info-box">
+                    🏘️ अपना थाना और गाँव चुनकर आसपास की सेवाएँ खोजें<br>
+                    Select your Thana → Village to discover nearby services
+                </div>
+
+                <div class="form-group">
+                    <label>District <span class="hindi">जिला</span></label>
+                    <input type="text" class="form-control" value="Ghazipur (गाज़ीपुर)" readonly style="background:var(--gray-100);">
+                </div>
+
+                <div class="form-group">
+                    <label>Thana / Police Station <span class="hindi">थाना चुनें</span></label>
+                    <select class="form-control" id="locThana" onchange="onThanaChange('loc')">
+                        <option value="">-- Thana Chunein --</option>
+                    </select>
+                </div>
+                <div class="form-group hidden" id="locCustomThanaGroup">
+                    <label>Your Thana Name <span class="hindi">अपने थाने का नाम</span></label>
+                    <input type="text" class="form-control" id="locCustomThana" placeholder="Thana ka naam likhein">
+                </div>
+
+                <div class="form-group">
+                    <label>Village / गाँव <span class="hindi">गाँव चुनें</span></label>
+                    <select class="form-control" id="locVillage" onchange="onVillageChange('loc')">
+                        <option value="">-- Pehle Thana chunein --</option>
+                    </select>
+                </div>
+                <div class="form-group hidden" id="locCustomVillageGroup">
+                    <label>Your Village Name <span class="hindi">अपने गाँव का नाम</span></label>
+                    <input type="text" class="form-control" id="locCustomVillage" placeholder="Gaon ka naam likhein">
+                </div>
+
+                <button class="btn-primary" onclick="setLocation()">📍 Location Set Karein</button>
+                <button class="btn-secondary" onclick="clearLocationFilter()">🔄 Show All Ghazipur (Sabhi dekhein)</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- POST SERVICE/NEED MODAL -->
+<div class="modal-overlay" id="postModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="postModalTitle">➕ New Post</h2>
+            <button class="modal-close" onclick="closeModal('postModal')">✕</button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label>Post Type <span class="hindi">पोस्ट प्रकार</span></label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="postTypeProvider" name="postType" value="provider" checked>
+                        <label for="postTypeProvider">🟢 I Provide Service<br><small>मैं सेवा देता हूँ</small></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="postTypeSeeker" name="postType" value="seeker">
+                        <label for="postTypeSeeker">🟠 I Need Service<br><small>मुझे सेवा चाहिए</small></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Category <span class="hindi">श्रेणी</span></label>
+                <select class="form-control" id="postCategory">
+                    <option value="">-- Category Chunein --</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Title <span class="hindi">शीर्षक</span></label>
+                <input type="text" class="form-control" id="postTitle" placeholder="Jaise: Fresh Doodh milega, Electrician chahiye...">
+            </div>
+
+            <div class="form-group">
+                <label>Description <span class="hindi">विवरण</span></label>
+                <textarea class="form-control" id="postDesc" placeholder="Details likhein... kya service hai, rate kya hai, samay kya hai..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Price / Rate (Optional) <span class="hindi">कीमत</span></label>
+                <input type="text" class="form-control" id="postPrice" placeholder="Jaise: ₹50/litre, ₹200/visit, Negotiable">
+            </div>
+
+            <div class="form-group">
+                <label>Contact Number <span class="hindi">संपर्क नंबर</span></label>
+                <input type="tel" class="form-control" id="postPhone" placeholder="Mobile number" maxlength="10">
+            </div>
+
+            <div class="form-group">
+                <label>Thana <span class="hindi">थाना</span></label>
+                <select class="form-control" id="postThana" onchange="onThanaChange('post')">
+                    <option value="">-- Thana Chunein --</option>
+                </select>
+            </div>
+            <div class="form-group hidden" id="postCustomThanaGroup">
+                <label>Your Thana Name</label>
+                <input type="text" class="form-control" id="postCustomThana" placeholder="Thana ka naam">
+            </div>
+
+            <div class="form-group">
+                <label>Village <span class="hindi">गाँव</span></label>
+                <select class="form-control" id="postVillage" onchange="onVillageChange('post')">
+                    <option value="">-- Pehle Thana chunein --</option>
+                </select>
+            </div>
+            <div class="form-group hidden" id="postCustomVillageGroup">
+                <label>Your Village Name</label>
+                <input type="text" class="form-control" id="postCustomVillage" placeholder="Gaon ka naam">
+            </div>
+
+            <input type="hidden" id="editPostId" value="">
+
+            <button class="btn-primary btn-saffron" onclick="submitPost()">✅ Post Karein / Submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
+<script>
+/* ==============================================================
+   DATA: THANA & VILLAGE MAPPING FOR GHAZIPUR DISTRICT
+   ============================================================== */
+
+const THANA_LIST = [
+    "Kotwali (Sadar)",
+    "Nandganj",
+    "Jamania",
+    "Mohammadabad",
+    "Saidpur",
+    "Dildarnagar",
+    "Gahamar",
+    "Kasimabad",
+    "Bhudkuda",
+    "Karanda",
+    "Jangipur",
+    "Shadiyabad",
+    "Nonhara",
+    "Mardah",
+    "Birno",
+    "Bhanwarkol",
+    "Baresar",
+    "Karimuddinpur",
+    "Suhwal",
+    "Revatipur",
+    "Dullahpur",
+    "Sadat",
+    "Bahariyabad",
+    "Khanpur",
+    "Nagasar",
+    "Anti-Power Theft (Special)",
+    "Mahila Thana (Women)"
+];
+
+const THANA_VILLAGES = {
+    "Kotwali (Sadar)": [
+        "Lal Darwaja", "Aamghat", "Mahuabagh", "Navapura", "Andhaun",
+        "Bhuili", "Shivpur", "Baraon", "Gauspur", "Tajpur",
+        "Muftiganj", "Karbigwan", "Dullapur Kotwa", "Rameshwarpur", "Kasba Ghazipur",
+        "Mahaveer Ganj", "Pachottar", "Birpur", "Mahal Kotwa", "Dharampur"
+    ],
+    "Nandganj": [
+        "Devkali", "Kusmikala", "Fateullapur", "Saheri", "Naisara",
+        "Kailawar", "Bharauli", "Chainpur", "Ramgarh", "Sarai Meja",
+        "Madarpur", "Jhakhara", "Katia", "Babupur", "Sikandarpur",
+        "Rasoolpur", "Saidabad", "Nandganj Bazar", "Hariharpur", "Chilawan"
+    ],
+    "Jamania": [
+        "Zamania Kasba", "Dewriya", "Rampur", "Tappur Majha", "Gauri",
+        "Narayanpur", "Pachrukhi", "Dharahara", "Tendua", "Sirsi",
+        "Ganga Ghat", "Korahia", "Benipur", "Majhwa", "Sarai Govardhan",
+        "Sareya", "Kachnarwa", "Shahpur Jamania", "Khankhana", "Mau"
+    ],
+    "Mohammadabad": [
+        "Yusufpur", "Gondaur", "Kewatli", "Jamalpur", "Shahpur",
+        "Sultanpur", "Deoria", "Kateya", "Barsathi", "Amawa",
+        "Mohamadabad Town", "Nai Bazar", "Sakrawa", "Domanpur", "Bhatauli",
+        "Ranipur", "Koiruna", "Chapra", "Bhagwanpur", "Machhli Shahar"
+    ],
+    "Saidpur": [
+        "Bhitri", "Saidpur Town", "Tarighat", "Manpur", "Sujabad",
+        "Dewariya", "Bahrampur", "Baisakhpur", "Pipri", "Salempur",
+        "Nurpur", "Teli Ghat", "Rajpur Saidpur", "Paharpur", "Jamunia",
+        "Khuthan", "Chauki", "Muraili", "Devnathpur", "Ramnagar"
+    ],
+    "Dildarnagar": [
+        "Rakasaha", "Dildarnagar Town", "Railway Colony", "Jalalpur", "Shahabpur",
+        "Haldharpur", "Bairia", "Katehari", "Uparwar", "Chandpur",
+        "Agrahara", "Bhediyan", "Nagadev", "Rampur Dildarnagar", "Pandey Chak",
+        "Malkpur", "Sarsa", "Khajuri", "Dhanapur", "Station Road"
+    ],
+    "Gahamar": [
+        "Gahmar", "Sherpur", "Bara", "Revatipur Gahamar", "Dharmapur",
+        "Kataka", "Pipra", "Bhadaura", "Tajpur Gahamar", "Lakshmipur",
+        "Nathmalpur", "Gaurabadshahpur", "Kaserwa", "Bhagatpur", "Sarai Gahmar",
+        "Tiwari Tola", "Rajbhar Tola", "Dubey Ka Purwa", "Basahi", "Devkali Gahamar"
+    ],
+    "Kasimabad": [
+        "Kasimabad Town", "Mardah Kasimabad", "Sarai Kasimabad", "Bahadurpur", "Hatwa",
+        "Baluwa", "Kammalpur", "Saleempur", "Lalanpur", "Jigna",
+        "Rasulpur Kasimabad", "Dharampur", "Bahera", "Gajehara", "Kataria",
+        "Kharna", "Khalispur", "Maghar", "Bibipur", "Tendui"
+    ],
+    "Bhudkuda": [
+        "Jakhnia", "Bhudkuda Town", "Akaura", "Chihut", "Garhdewa",
+        "Sonbarsa", "Bhagwanpur", "Dariyapur", "Chandipur", "Karari",
+        "Katka Bhudkuda", "Nariawan", "Mithanapur", "Bahrampur", "Gohri",
+        "Dakshin Tola", "Raghunathpur", "Malyawan", "Harpur", "Dharamdaspur"
+    ],
+    "Karanda": [
+        "Karanda Town", "Ganga Ghat Karanda", "Rampur Karanda", "Teliya", "Maganpur",
+        "Chilahi", "Dubawal", "Sahjanwa", "Newazi", "Gopalpur",
+        "Paigambarpur", "Daudpur", "Bhatauli Karanda", "Raghunathpur", "Chainwa",
+        "Dharaon", "Khushipur", "Rudrapur", "Batesara", "Amritpur"
+    ],
+    "Jangipur": [
+        "Jangipur Town", "Sarai Jangi", "Kamalapur", "Bhojpur", "Dewanpur",
+        "Amhapur", "Godhna", "Belwa", "Piparhi", "Fatehpur Jangi",
+        "Bakhira", "Sonharwa", "Malpur", "Jhunwa", "Dulhapur",
+        "Saidpur Jangi", "Mahuwa", "Laksha", "Chakarpur", "Bisunpur"
+    ],
+    "Shadiyabad": [
+        "Shadiyabad Town", "Sarai Shadiya", "Maheshpur", "Bardiha", "Chandauli",
+        "Hasanpur", "Lalpur", "Narayanpur Shadi", "Kishanpur", "Godamapur",
+        "Ramgarh Shadiya", "Fatehpur", "Bahadurpur", "Mirzapur", "Alinagar",
+        "Pahada", "Karmaha", "Dilwarpur", "Bhojapur", "Khamhaur"
+    ],
+    "Nonhara": [
+        "Nonhara Town", "Hathinwa", "Deodha", "Chainpur Nonhara", "Narainpur",
+        "Jiyanpur", "Kharwa", "Tendua Nonhara", "Bargawan", "Chakra",
+        "Sahjanwa", "Bharauli Nonhara", "Sonwara", "Birpur Nonhara", "Mahuaon",
+        "Dhanapur", "Benipur", "Kasera", "Bairiya", "Jagdishpur"
+    ],
+    "Mardah": [
+        "Mardah Town", "Sarai Mardah", "Devnagar", "Bhavanipur", "Sherpur Mardah",
+        "Kamalpur Mardah", "Chaura", "Lakhanpur", "Narsinghpur", "Daudpur Mardah",
+        "Bairia Mardah", "Amwa Mardah", "Piparhi Mardah", "Sirsa", "Dharamdaspur",
+        "Rajpur", "Baghauli", "Gopalpur Mardah", "Bhelari", "Chitawa"
+    ],
+    "Birno": [
+        "Birno Town", "Chak Birno", "Sarai Birno", "Kamhari", "Jairampur",
+        "Babhani", "Kusmhi", "Jhajha", "Rampur Birno", "Dharahara Birno",
+        "Pipalhi", "Dumari", "Bhoopnagar", "Chauri", "Dalippur",
+        "Ratnapur", "Narayanpur Birno", "Harpur", "Balua Birno", "Gondhi"
+    ],
+    "Bhanwarkol": [
+        "Bhanwarkol Town", "Sarai Bhanwar", "Sonwara", "Karmaini", "Chauri",
+        "Kothiya", "Balrampur", "Piparhi Bhanwar", "Baraipur", "Chaharta",
+        "Shahpur Bhanwar", "Devpur", "Maksudan", "Dulahpur Bhanwar", "Bhagwanpur",
+        "Kherwa", "Mahuari", "Ganeshpur", "Deori", "Rajgarh"
+    ],
+    "Baresar": [
+        "Baresar Town", "Nausar", "Rampur Baresar", "Sarai Baresar", "Kharauli",
+        "Bhatauliya", "Koraon", "Dulahpur Baresar", "Ratanpur", "Sonpur",
+        "Shahpur Baresar", "Narayanpur Baresar", "Dharmapur", "Belauri", "Gajpur",
+        "Paikauli", "Godhanpur", "Lalpur Baresar", "Baheri", "Mustafabad"
+    ],
+    "Karimuddinpur": [
+        "Karimuddinpur Town", "Sarai Karim", "Nagwa", "Deori Karim", "Alampur",
+        "Bhakhri", "Kamhariya", "Gosain Tola", "Lakhimpur", "Gopalpur Karim",
+        "Sultanpur Karim", "Balua", "Dhanaura", "Jafarabad", "Rasoolpur Karim",
+        "Noonkhar", "Charkauli", "Sujadpur", "Ramnagar Karim", "Khalispur Karim"
+    ],
+    "Suhwal": [
+        "Suhwal Town", "Chilahi Suhwal", "Bardiha Suhwal", "Tendua Suhwal", "Saheri Suhwal",
+        "Rampur Suhwal", "Dharmapur Suhwal", "Piparahia", "Bansdih Road", "Gopalpur Suhwal",
+        "Kamalapur Suhwal", "Jaisinghpur", "Lalpur Suhwal", "Bhelari Suhwal", "Nagwa Suhwal",
+        "Sonwari", "Devkali Suhwal", "Baghail", "Raghunathpur Suhwal", "Fatehpur Suhwal"
+    ],
+    "Revatipur": [
+        "Revatipur Town", "Sarai Revati", "Chandpur Revati", "Gopiganj", "Rajpur Revati",
+        "Lakshmanpur", "Karari Revati", "Bahadurpur Revati", "Naugarh", "Dharampur Revati",
+        "Ganga Ghat Revati", "Pipri Revati", "Dewariya Revati", "Tendua Revati", "Bhagwanpur Revati",
+        "Sonwara Revati", "Amawa Revati", "Koila", "Bhawanipur", "Dulhapur Revati"
+    ],
+    "Dullahpur": [
+        "Dullahpur Town", "Sarai Dullah", "Champatpur", "Jaisinghpur Dullah", "Khanpur Dullah",
+        "Bhikhampur", "Narsinghpur Dullah", "Kusamha", "Akbarpur", "Dharahara Dullah",
+        "Gopalpur Dullah", "Balrampur Dullah", "Shahpur Dullah", "Kamalpur Dullah", "Piparhi Dullah",
+        "Ramgarh Dullah", "Tendua Dullah", "Sonbarsa Dullah", "Bhatauli Dullah", "Amritpur Dullah"
+    ],
+    "Sadat": [
+        "Sadat Town", "Sarai Sadat", "Jalalabad", "Hasanpur Sadat", "Fatehpur Sadat",
+        "Dharampur Sadat", "Rajpur Sadat", "Mirpur", "Sultanabad", "Karimpur Sadat",
+        "Noorpur", "Bahera Sadat", "Gopalpur Sadat", "Bhojpur Sadat", "Benipur Sadat",
+        "Ramgarh Sadat", "Chaura Sadat", "Deori Sadat", "Nawabpur", "Alawalpur"
+    ],
+    "Bahariyabad": [
+        "Bahariyabad Town", "Sarai Bahariya", "Chandpur Bahariya", "Lakhanpur Bahariya", "Bhagwanpur Bahariya",
+        "Kamalapur Bahariya", "Piparhi Bahariya", "Gopalpur Bahariya", "Sonwara Bahariya", "Tendua Bahariya",
+        "Dharampur Bahariya", "Rajpur Bahariya", "Narsinghpur Bahariya", "Balua Bahariya", "Deori Bahariya",
+        "Shahpur Bahariya", "Hasanpur Bahariya", "Fatehpur Bahariya", "Jairampur Bahariya", "Rampur Bahariya"
+    ],
+    "Khanpur": [
+        "Khanpur Town", "Sarai Khanpur", "Nawada", "Basantpur", "Lakhimpur Khanpur",
+        "Rajpur Khanpur", "Dharampur Khanpur", "Shahpur Khanpur", "Gopalpur Khanpur", "Piparhi Khanpur",
+        "Fatehpur Khanpur", "Sonwara Khanpur", "Kamalapur Khanpur", "Deori Khanpur", "Bhojpur Khanpur",
+        "Tendua Khanpur", "Benipur Khanpur", "Chaura Khanpur", "Amawa Khanpur", "Balrampur Khanpur"
+    ],
+    "Nagasar": [
+        "Nagasar Town", "Sarai Nagasar", "Bardiha Nagasar", "Raghunathpur Nagasar", "Dharampur Nagasar",
+        "Gopalpur Nagasar", "Lakhanpur Nagasar", "Piparhi Nagasar", "Kamalpur Nagasar", "Bhagwanpur Nagasar",
+        "Fatehpur Nagasar", "Tendua Nagasar", "Shahpur Nagasar", "Rajpur Nagasar", "Sonwara Nagasar",
+        "Hasanpur Nagasar", "Balua Nagasar", "Deori Nagasar", "Chaura Nagasar", "Amawa Nagasar"
+    ],
+    "Anti-Power Theft (Special)": [
+        "Ghazipur City", "Industrial Area", "Sadar Zone", "Mohammadabad Zone", "Saidpur Zone"
+    ],
+    "Mahila Thana (Women)": [
+        "Ghazipur Sadar", "All Areas (Sabhi Kshetra)"
+    ]
+};
+
+/* ==============================================================
+   DATA: SERVICE CATEGORIES
+   ============================================================== */
+
+const CATEGORIES = [
+    { id: "milk", name: "Milk / Dairy", hindi: "दूध / डेयरी", icon: "🥛" },
+    { id: "grocery", name: "Grocery / Kirana", hindi: "किराना", icon: "🏪" },
+    { id: "vegetables", name: "Vegetables", hindi: "सब्जी", icon: "🥬" },
+    { id: "doctor", name: "Doctor / Hospital", hindi: "डॉक्टर", icon: "👨‍⚕️" },
+    { id: "ambulance", name: "Ambulance", hindi: "एम्बुलेंस", icon: "🚑" },
+    { id: "teacher", name: "Teacher / Tuition", hindi: "शिक्षक / ट्यूशन", icon: "👨‍🏫" },
+    { id: "electrician", name: "Electrician", hindi: "बिजली मिस्त्री", icon: "⚡" },
+    { id: "plumber", name: "Plumber", hindi: "प्लम्बर", icon: "🔧" },
+    { id: "carpenter", name: "Carpenter", hindi: "बढ़ई", icon: "🪚" },
+    { id: "labour", name: "Labour / Mazdoor", hindi: "मजदूर", icon: "👷" },
+    { id: "farming", name: "Farming Services", hindi: "खेती सेवा", icon: "🚜" },
+    { id: "transport", name: "Transport / Vehicle", hindi: "गाड़ी / ट्रांसपोर्ट", icon: "🚗" },
+    { id: "bike", name: "Bike Booking", hindi: "बाइक बुकिंग", icon: "🏍️" },
+    { id: "buysell", name: "Buy & Sell", hindi: "खरीदें / बेचें", icon: "🛒" },
+    { id: "jobs", name: "Jobs / Work", hindi: "नौकरी / काम", icon: "💼" },
+    { id: "home", name: "Home Services", hindi: "घरेलू सेवा", icon: "🏠" },
+    { id: "emergency", name: "Emergency Help", hindi: "आपातकालीन", icon: "🆘" },
+    { id: "medical", name: "Medical Store", hindi: "मेडिकल स्टोर", icon: "💊" }
+];
+
+/* ==============================================================
+   DATA: SAMPLE LISTINGS (DUMMY DATA)
+   ============================================================== */
+
+const SAMPLE_LISTINGS = [
+    {
+        id: "sample_1",
+        type: "provider",
+        category: "milk",
+        title: "Fresh Gaay ka Doodh - Subah Sham",
+        desc: "Pure cow milk, subah 6 baje aur sham 5 baje delivery. ₹60/litre. Kotwali area mein free delivery.",
+        price: "₹60/litre",
+        phone: "9876543210",
+        thana: "Kotwali (Sadar)",
+        village: "Lal Darwaja",
+        userName: "Ramesh Yadav",
+        userId: "sample_user_1",
+        timestamp: Date.now() - 3600000
+    },
+    {
+        id: "sample_2",
+        type: "provider",
+        category: "electrician",
+        title: "Bijli Mistri - Wiring & Repair",
+        desc: "Ghar ki wiring, fan repair, MCB fitting, inverter installation. 10 saal ka anubhav. Sham tak available.",
+        price: "₹200-500/visit",
+        phone: "9123456789",
+        thana: "Nandganj",
+        village: "Devkali",
+        userName: "Sunil Kumar",
+        userId: "sample_user_2",
+        timestamp: Date.now() - 7200000
+    },
+    {
+        id: "sample_3",
+        type: "seeker",
+        category: "teacher",
+        title: "Maths Teacher chahiye - Class 10",
+        desc: "Mere bete ke liye Class 10 ka Maths tuition teacher chahiye. Ghar par aake padhaye. Weekly 5 din.",
+        price: "₹1500-2000/month",
+        phone: "9988776655",
+        thana: "Jamania",
+        village: "Zamania Kasba",
+        userName: "Ajay Singh",
+        userId: "sample_user_3",
+        timestamp: Date.now() - 14400000
+    },
+    {
+        id: "sample_4",
+        type: "provider",
+        category: "transport",
+        title: "Bolero Available - Local & Outstation",
+        desc: "Bolero car hire for shaadi, hospital, station drop. AC vehicle. Driver included. Reasonable rate.",
+        price: "₹10/km (min ₹500)",
+        phone: "9871234560",
+        thana: "Mohammadabad",
+        village: "Yusufpur",
+        userName: "Firoz Ahmed",
+        userId: "sample_user_4",
+        timestamp: Date.now() - 21600000
+    },
+    {
+        id: "sample_5",
+        type: "provider",
+        category: "doctor",
+        title: "Dr. Priya Sharma - MBBS, General Physician",
+        desc: "OPD subah 9-1 aur sham 5-8. Fever, BP, Sugar, General checkup. Clinic: Main Road Saidpur.",
+        price: "₹100/consultation",
+        phone: "8899001122",
+        thana: "Saidpur",
+        village: "Saidpur Town",
+        userName: "Dr. Priya Sharma",
+        userId: "sample_user_5",
+        timestamp: Date.now() - 28800000
+    },
+    {
+        id: "sample_6",
+        type: "provider",
+        category: "grocery",
+        title: "Sharma Kirana Store - Home Delivery",
+        desc: "Aata, chawal, dal, tel, masala sabkuch milega. ₹500+ order pe free delivery. WhatsApp pe order karein.",
+        price: "MRP Rate",
+        phone: "9556677889",
+        thana: "Dildarnagar",
+        village: "Dildarnagar Town",
+        userName: "Mukesh Sharma",
+        userId: "sample_user_6",
+        timestamp: Date.now() - 36000000
+    },
+    {
+        id: "sample_7",
+        type: "provider",
+        category: "farming",
+        title: "Tractor & Trolley Kiraye Pe",
+        desc: "Mahindra 575 tractor with trolley. Jotai, dhulai, maal dhulai sab kaam hoga. Daily/hourly basis.",
+        price: "₹800/hour",
+        phone: "7788990011",
+        thana: "Gahamar",
+        village: "Gahmar",
+        userName: "Vijay Rajbhar",
+        userId: "sample_user_7",
+        timestamp: Date.now() - 43200000
+    },
+    {
+        id: "sample_8",
+        type: "seeker",
+        category: "plumber",
+        title: "Plumber Chahiye - Urgent",
+        desc: "Ghar ka pani ka pipe leak ho gaya hai. Aaj hi kisi plumber ki zaroorat hai. Jaldi aayein.",
+        price: "Negotiable",
+        phone: "9445566778",
+        thana: "Kasimabad",
+        village: "Kasimabad Town",
+        userName: "Ravi Verma",
+        userId: "sample_user_8",
+        timestamp: Date.now() - 50400000
+    },
+    {
+        id: "sample_9",
+        type: "provider",
+        category: "medical",
+        title: "Janta Medical Store - 24/7 Open",
+        desc: "Sabhi dawai milegi. Discount on MRP. Free BP check. Near bus stand Ghazipur.",
+        price: "Discounted MRP",
+        phone: "6677889900",
+        thana: "Kotwali (Sadar)",
+        village: "Mahuabagh",
+        userName: "Pramod Gupta",
+        userId: "sample_user_9",
+        timestamp: Date.now() - 57600000
+    },
+    {
+        id: "sample_10",
+        type: "provider",
+        category: "vegetables",
+        title: "Fresh Sabzi - Subah 7 Baje Milegi",
+        desc: "Taza sabzi roz subah. Tamatar, aaloo, pyaz, gobhi, palak sab milega. Ghar tak delivery.",
+        price: "Market Rate",
+        phone: "9334455667",
+        thana: "Bhudkuda",
+        village: "Jakhnia",
+        userName: "Lalji Kewat",
+        userId: "sample_user_10",
+        timestamp: Date.now() - 64800000
+    },
+    {
+        id: "sample_11",
+        type: "provider",
+        category: "carpenter",
+        title: "Furniture Banwayein - Modern Design",
+        desc: "Bed, almirah, table, chair sab banate hain. Sagwan lakdi. 15 saal ka anubhav. Rate mein baat ho jayegi.",
+        price: "As per design",
+        phone: "8877665544",
+        thana: "Karanda",
+        village: "Karanda Town",
+        userName: "Dinesh Vishwakarma",
+        userId: "sample_user_11",
+        timestamp: Date.now() - 72000000
+    },
+    {
+        id: "sample_12",
+        type: "seeker",
+        category: "labour",
+        title: "5 Mazdoor Chahiye - Ghar Ka Kaam",
+        desc: "Naya ghar ban raha hai. 5 mazdoor chahiye 10 din ke liye. Khana + paisa dono milega.",
+        price: "₹400/day/person",
+        phone: "9112233445",
+        thana: "Jangipur",
+        village: "Jangipur Town",
+        userName: "Santosh Mishra",
+        userId: "sample_user_12",
+        timestamp: Date.now() - 86400000
+    },
+    {
+        id: "sample_13",
+        type: "provider",
+        category: "bike",
+        title: "Bike Taxi Available - Anywhere in Ghazipur",
+        desc: "Splendor+ bike se kahin bhi drop. Station, hospital, bazaar. Samaan bhi deliver karta hoon.",
+        price: "₹5/km",
+        phone: "7766554433",
+        thana: "Kotwali (Sadar)",
+        village: "Navapura",
+        userName: "Amit Chauhan",
+        userId: "sample_user_13",
+        timestamp: Date.now() - 100000000
+    },
+    {
+        id: "sample_14",
+        type: "provider",
+        category: "buysell",
+        title: "Purani Cycle Bikau Hai - Hero Sprint",
+        desc: "Hero Sprint cycle, 2 saal purani. Achhi condition mein hai. Price negotiable. Dekhne aayein.",
+        price: "₹3,500",
+        phone: "9223344556",
+        thana: "Shadiyabad",
+        village: "Shadiyabad Town",
+        userName: "Manish Pandey",
+        userId: "sample_user_14",
+        timestamp: Date.now() - 120000000
+    },
+    {
+        id: "sample_15",
+        type: "provider",
+        category: "home",
+        title: "Pest Control Service - Cockroach, Termite",
+        desc: "Ghar mein cockroach, deemak, chuhon ka ilaaj. Safe chemicals. Warranty ke saath. Poore Ghazipur mein service.",
+        price: "₹1000-3000",
+        phone: "8811223344",
+        thana: "Nonhara",
+        village: "Nonhara Town",
+        userName: "Rajiv Pest Control",
+        userId: "sample_user_15",
+        timestamp: Date.now() - 150000000
+    }
+];
+
+/* ==============================================================
+   APP STATE
+   ============================================================== */
+
+let appState = {
+    currentUser: null,          // Logged in user object
+    selectedThana: "",          // Active location filter - thana
+    selectedVillage: "",        // Active location filter - village
+    activePage: "home",         // Current page
+    activeCategory: "all",      // Active category filter
+    activeType: "all",          // Active type filter (all/provider/seeker)
+    searchQuery: "",            // Search text
+    editingPostId: null         // ID of post being edited
+};
+
+/* ==============================================================
+   UTILITY FUNCTIONS
+   ============================================================== */
+
+/**
+ * Generate unique ID
+ */
+function generateId() {
+    return 'id_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+}
+
+/**
+ * Show toast notification
+ */
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+/**
+ * Get all listings (sample + user created)
+ */
+function getAllListings() {
+    const userListings = JSON.parse(localStorage.getItem('gzp_listings') || '[]');
+    return [...userListings, ...SAMPLE_LISTINGS].sort((a, b) => b.timestamp - a.timestamp);
+}
+
+/**
+ * Save listings to localStorage
+ */
+function saveListings(listings) {
+    localStorage.setItem('gzp_listings', JSON.stringify(listings));
+}
+
+/**
+ * Get all users
+ */
+function getUsers() {
+    return JSON.parse(localStorage.getItem('gzp_users') || '[]');
+}
+
+/**
+ * Save users
+ */
+function saveUsers(users) {
+    localStorage.setItem('gzp_users', JSON.stringify(users));
+}
+
+/**
+ * Get current user from session
+ */
+function getCurrentUser() {
+    const userId = localStorage.getItem('gzp_currentUser');
+    if (!userId) return null;
+    const users = getUsers();
+    return users.find(u => u.id === userId) || null;
+}
+
+/**
+ * Set current user session
+ */
+function setCurrentUser(userId) {
+    localStorage.setItem('gzp_currentUser', userId);
+    appState.currentUser = getCurrentUser();
+    updateUIForUser();
+}
+
+/**
+ * Format timestamp to readable time
+ */
+function timeAgo(ts) {
+    const diff = Date.now() - ts;
+    const mins = Math.floor(diff / 60000);
+    if (mins < 1) return "Abhi abhi";
+    if (mins < 60) return mins + " min pehle";
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24) return hrs + " ghante pehle";
+    const days = Math.floor(hrs / 24);
+    if (days < 30) return days + " din pehle";
+    return Math.floor(days / 30) + " mahine pehle";
+}
+
+/**
+ * Get category info by id
+ */
+function getCategoryById(id) {
+    return CATEGORIES.find(c => c.id === id) || { id: id, name: id, hindi: "", icon: "📦" };
+}
+
+/* ==============================================================
+   MODAL MANAGEMENT
+   ============================================================== */
+
+function openModal(modalId) {
+    document.getElementById(modalId).classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+// Close modal on overlay click
+document.querySelectorAll('.modal-overlay').forEach(modal => {
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    });
+});
+
+/* ==============================================================
+   THANA & VILLAGE DROPDOWN LOGIC
+   ============================================================== */
+
+/**
+ * Populate Thana dropdown for a given prefix (reg, loc, post)
+ */
+function populateThanaDropdown(prefix) {
+    const sel = document.getElementById(prefix + 'Thana');
+    if (!sel) return;
+    sel.innerHTML = '<option value="">-- Thana Chunein --</option>';
+    THANA_LIST.forEach(thana => {
+        const opt = document.createElement('option');
+        opt.value = thana;
+        opt.textContent = thana;
+        sel.appendChild(opt);
+    });
+    // Add "Other" option
+    const otherOpt = document.createElement('option');
+    otherOpt.value = "__other__";
+    otherOpt.textContent = "🔸 Other (Type Your Thana / अन्य)";
+    sel.appendChild(otherOpt);
+}
+
+/**
+ * Handle Thana change
+ */
+function onThanaChange(prefix) {
+    const thanaVal = document.getElementById(prefix + 'Thana').value;
+    const customGroup = document.getElementById(prefix + 'CustomThanaGroup');
+    const villageSel = document.getElementById(prefix + 'Village');
+    const customVillageGroup = document.getElementById(prefix + 'CustomVillageGroup');
+
+    // Toggle custom thana input
+    if (thanaVal === "__other__") {
+        customGroup.classList.remove('hidden');
+    } else {
+        customGroup.classList.add('hidden');
+    }
+
+    // Always hide custom village when thana changes
+    if (customVillageGroup) customVillageGroup.classList.add('hidden');
+
+    // Populate villages
+    if (villageSel) {
+        villageSel.innerHTML = '<option value="">-- Village Chunein --</option>';
+        if (thanaVal && thanaVal !== "__other__" && THANA_VILLAGES[thanaVal]) {
+            THANA_VILLAGES[thanaVal].forEach(village => {
+                const opt = document.createElement('option');
+                opt.value = village;
+                opt.textContent = village;
+                villageSel.appendChild(opt);
+            });
+        }
+        // Always add "Other Village" option
+        const otherVillage = document.createElement('option');
+        otherVillage.value = "__other__";
+        otherVillage.textContent = "🔸 Other Village (Type Manually / अन्य गाँव)";
+        villageSel.appendChild(otherVillage);
+    }
+
+    // Update location step indicators for location modal
+    if (prefix === 'loc') {
+        updateLocationSteps();
+    }
+
+    // Show/hide category for registration if provider
+    if (prefix === 'reg') {
+        const role = document.querySelector('input[name="regRole"]:checked');
+        if (role && role.value === 'provider') {
+            document.getElementById('regCategoryGroup').style.display = 'block';
+        }
+    }
+}
+
+/**
+ * Handle Village change
+ */
+function onVillageChange(prefix) {
+    const villageVal = document.getElementById(prefix + 'Village').value;
+    const customGroup = document.getElementById(prefix + 'CustomVillageGroup');
+
+    if (villageVal === "__other__") {
+        customGroup.classList.remove('hidden');
+    } else {
+        customGroup.classList.add('hidden');
+    }
+
+    if (prefix === 'loc') {
+        updateLocationSteps();
+    }
+}
+
+/**
+ * Update location step indicators
+ */
+function updateLocationSteps() {
+    const thana = document.getElementById('locThana').value;
+    const village = document.getElementById('locVillage').value;
+
+    const step1 = document.getElementById('locStep1');
+    const step2 = document.getElementById('locStep2');
+    const step3 = document.getElementById('locStep3');
+    const line1 = document.getElementById('locLine1');
+    const line2 = document.getElementById('locLine2');
+
+    // Step 1 always done (district is fixed)
+    step1.classList.add('done');
+    step1.classList.remove('active');
+
+    if (thana) {
+        step2.classList.add('done');
+        step2.classList.remove('active');
+        line1.classList.add('done');
+    } else {
+        step2.classList.remove('done');
+        step2.classList.add('active');
+        line1.classList.remove('done');
+    }
+
+    if (village) {
+        step3.classList.add('done');
+        step3.classList.remove('active');
+        line2.classList.add('done');
+    } else {
+        step3.classList.remove('done');
+        if (thana) step3.classList.add('active');
+        line2.classList.remove('done');
+    }
+}
+
+/**
+ * Get resolved thana name (handles "Other" option)
+ */
+function getResolvedThana(prefix) {
+    const val = document.getElementById(prefix + 'Thana').value;
+    if (val === "__other__") {
+        return document.getElementById(prefix + 'CustomThana').value.trim() || "Unknown Thana";
+    }
+    return val;
+}
+
+/**
+ * Get resolved village name (handles "Other" option)
+ */
+function getResolvedVillage(prefix) {
+    const val = document.getElementById(prefix + 'Village').value;
+    if (val === "__other__") {
+        return document.getElementById(prefix + 'CustomVillage').value.trim() || "Unknown Village";
+    }
+    return val;
+}
+
+/* ==============================================================
+   LOCATION FILTER
+   ============================================================== */
+
+function setLocation() {
+    const thana = getResolvedThana('loc');
+    const village = getResolvedVillage('loc');
+
+    appState.selectedThana = thana;
+    appState.selectedVillage = village;
+
+    updateLocationDisplay();
+    closeModal('locationModal');
+    renderListings();
+    showToast("📍 Location set: " + (thana || "All Ghazipur"));
+}
+
+function clearLocationFilter() {
+    appState.selectedThana = "";
+    appState.selectedVillage = "";
+    document.getElementById('locThana').value = "";
+    document.getElementById('locVillage').innerHTML = '<option value="">-- Pehle Thana chunein --</option>';
+    document.getElementById('locCustomThanaGroup').classList.add('hidden');
+    document.getElementById('locCustomVillageGroup').classList.add('hidden');
+
+    updateLocationDisplay();
+    closeModal('locationModal');
+    renderListings();
+    showToast("📍 Showing all Ghazipur listings");
+}
+
+function updateLocationDisplay() {
+    const locText = document.getElementById('currentLocationText');
+    const subText = document.getElementById('currentSubLocation');
+
+    if (appState.selectedThana) {
+        locText.textContent = appState.selectedThana;
+        subText.textContent = appState.selectedVillage ?
+            "📍 " + appState.selectedVillage + ", Ghazipur" :
+            "📍 Ghazipur, Uttar Pradesh";
+    } else {
+        locText.textContent = "Ghazipur, Uttar Pradesh";
+        subText.textContent = "Thana & Village chunein / Select your area";
+    }
+}
+
+/* ==============================================================
+   LOGIN & REGISTRATION
+   ============================================================== */
+
+function handleLogin() {
+    const mobile = document.getElementById('loginMobile').value.trim();
+
+    if (!/^[0-9]{10}$/.test(mobile)) {
+        showToast("❌ Please enter valid 10-digit mobile number");
+        return;
+    }
+
+    const users = getUsers();
+    const existingUser = users.find(u => u.mobile === mobile);
+
+    if (existingUser) {
+        // Login existing user
+        setCurrentUser(existingUser.id);
+        closeModal('loginModal');
+        showToast("✅ Welcome back, " + existingUser.name + "!");
+        document.getElementById('loginForm').style.display = 'block';
+        document.getElementById('registerForm').style.display = 'none';
+    } else {
+        // Show registration form
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('registerForm').style.display = 'block';
+        document.getElementById('regMobile').value = mobile;
+
+        // Populate dropdowns
+        populateThanaDropdown('reg');
+        populateCategoryDropdown('regCategory');
+    }
+}
+
+// Toggle category field based on role selection
+document.querySelectorAll('input[name="regRole"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        document.getElementById('regCategoryGroup').style.display =
+            this.value === 'provider' ? 'block' : 'none';
+    });
+});
+
+function handleRegister() {
+    const name = document.getElementById('regName').value.trim();
+    const mobile = document.getElementById('regMobile').value.trim();
+    const role = document.querySelector('input[name="regRole"]:checked').value;
+    const thana = getResolvedThana('reg');
+    const village = getResolvedVillage('reg');
+    const category = document.getElementById('regCategory').value;
+
+    if (!name) { showToast("❌ Name likhein"); return; }
+    if (!mobile) { showToast("❌ Mobile number missing"); return; }
+    if (!thana) { showToast("❌ Thana chunein"); return; }
+
+    const newUser = {
+        id: generateId(),
+        name: name,
+        mobile: mobile,
+        role: role,
+        thana: thana,
+        village: village || "",
+        category: role === 'provider' ? category : "",
+        createdAt: Date.now()
+    };
+
+    const users = getUsers();
+    users.push(newUser);
+    saveUsers(users);
+    setCurrentUser(newUser.id);
+
+    // Set location from user registration
+    appState.selectedThana = thana;
+    appState.selectedVillage = village;
+    updateLocationDisplay();
+
+    closeModal('loginModal');
+    showToast("✅ Registration successful! Swagat hai, " + name);
+
+    // Reset form
+    document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('registerForm').style.display = 'none';
+    document.getElementById('loginMobile').value = '';
+
+    renderListings();
+}
+
+function logout() {
+    localStorage.removeItem('gzp_currentUser');
+    appState.currentUser = null;
+    updateUIForUser();
+    switchPage('home');
+    showToast("👋 Logout successful");
+}
+
+function updateUIForUser() {
+    const user = appState.currentUser;
+    const loginBtn = document.getElementById('loginHeaderBtn');
+
+    if (user) {
+        loginBtn.textContent = "👤 " + user.name.split(' ')[0];
+        loginBtn.classList.add('active-user');
+        loginBtn.onclick = function() { switchPage('profile'); };
+    } else {
+        loginBtn.textContent = "👤 Login";
+        loginBtn.classList.remove('active-user');
+        loginBtn.onclick = function() { openModal('loginModal'); };
+    }
+}
+
+/* ==============================================================
+   POST SERVICE / NEED
+   ============================================================== */
+
+function openPostModal(editId) {
+    if (!appState.currentUser) {
+        showToast("❌ Pehle Login karein / Please login first");
+        openModal('loginModal');
+        return;
+    }
+
+    // Populate dropdowns
+    populateThanaDropdown('post');
+    populateCategoryDropdown('postCategory');
+
+    // Set default values from user profile
+    const user = appState.currentUser;
+
+    if (editId) {
+        // Editing existing post
+        appState.editingPostId = editId;
+        const allListings = getAllListings();
+        const post = allListings.find(l => l.id === editId);
+        if (!post) return;
+
+        document.getElementById('postModalTitle').textContent = "✏️ Edit Post";
+        document.getElementById('editPostId').value = editId;
+
+        // Set form values
+        document.querySelector(`input[name="postType"][value="${post.type}"]`).checked = true;
+        document.getElementById('postCategory').value = post.category;
+        document.getElementById('postTitle').value = post.title;
+        document.getElementById('postDesc').value = post.desc;
+        document.getElementById('postPrice').value = post.price || '';
+        document.getElementById('postPhone').value = post.phone;
+
+        // Set thana/village
+        setTimeout(() => {
+            const thanaFound = THANA_LIST.includes(post.thana);
+            if (thanaFound) {
+                document.getElementById('postThana').value = post.thana;
+                onThanaChange('post');
+                setTimeout(() => {
+                    const villages = THANA_VILLAGES[post.thana] || [];
+                    if (villages.includes(post.village)) {
+                        document.getElementById('postVillage').value = post.village;
+                    } else if (post.village) {
+                        document.getElementById('postVillage').value = "__other__";
+                        onVillageChange('post');
+                        document.getElementById('postCustomVillage').value = post.village;
+                    }
+                }, 50);
+            } else if (post.thana) {
+                document.getElementById('postThana').value = "__other__";
+                onThanaChange('post');
+                document.getElementById('postCustomThana').value = post.thana;
+            }
+        }, 50);
+
+    } else {
+        // New post
+        appState.editingPostId = null;
+        document.getElementById('postModalTitle').textContent = "➕ Naya Post / New Post";
+        document.getElementById('editPostId').value = '';
+
+        // Reset form
+        document.getElementById('postTitle').value = '';
+        document.getElementById('postDesc').value = '';
+        document.getElementById('postPrice').value = '';
+        document.getElementById('postPhone').value = user.mobile || '';
+        document.querySelector('input[name="postType"][value="provider"]').checked = true;
+
+        // Set user's thana/village
+        if (user.thana) {
+            setTimeout(() => {
+                const thanaFound = THANA_LIST.includes(user.thana);
+                if (thanaFound) {
+                    document.getElementById('postThana').value = user.thana;
+                    onThanaChange('post');
+                    if (user.village) {
+                        setTimeout(() => {
+                            const villages = THANA_VILLAGES[user.thana] || [];
+                            if (villages.includes(user.village)) {
+                                document.getElementById('postVillage').value = user.village;
+                            } else {
+                                document.getElementById('postVillage').value = "__other__";
+                                onVillageChange('post');
+                                document.getElementById('postCustomVillage').value = user.village;
+                            }
+                        }, 50);
+                    }
+                }
+            }, 50);
+        }
+    }
+
+    openModal('postModal');
+}
+
+function submitPost() {
+    const type = document.querySelector('input[name="postType"]:checked').value;
+    const category = document.getElementById('postCategory').value;
+    const title = document.getElementById('postTitle').value.trim();
+    const desc = document.getElementById('postDesc').value.trim();
+    const price = document.getElementById('postPrice').value.trim();
+    const phone = document.getElementById('postPhone').value.trim();
+    const thana = getResolvedThana('post');
+    const village = getResolvedVillage('post');
+
+    // Validation
+    if (!category) { showToast("❌ Category chunein"); return; }
+    if (!title) { showToast("❌ Title likhein"); return; }
+    if (!desc) { showToast("❌ Description likhein"); return; }
+    if (!/^[0-9]{10}$/.test(phone)) { showToast("❌ Valid 10-digit phone number daalein"); return; }
+    if (!thana) { showToast("❌ Thana chunein"); return; }
+
+    const user = appState.currentUser;
+    const editId = document.getElementById('editPostId').value;
+
+    if (editId) {
+        // Update existing post
+        const listings = JSON.parse(localStorage.getItem('gzp_listings') || '[]');
+        const idx = listings.findIndex(l => l.id === editId);
+        if (idx !== -1) {
+            listings[idx] = {
+                ...listings[idx],
+                type, category, title, desc, price, phone, thana, village,
+                timestamp: Date.now()
+            };
+            saveListings(listings);
+            showToast("✅ Post updated successfully!");
+        }
+    } else {
+        // Create new post
+        const newPost = {
+            id: generateId(),
+            type, category, title, desc, price, phone, thana, village,
+            userName: user.name,
+            userId: user.id,
+            timestamp: Date.now()
+        };
+
+        const listings = JSON.parse(localStorage.getItem('gzp_listings') || '[]');
+        listings.push(newPost);
+        saveListings(listings);
+        showToast("✅ Post created successfully!");
+    }
+
+    closeModal('postModal');
+    renderListings();
+    updateStats();
+}
+
+function deletePost(postId) {
+    if (!confirm("Kya aap ye post delete karna chahte hain? / Delete this post?")) return;
+
+    const listings = JSON.parse(localStorage.getItem('gzp_listings') || '[]');
+    const filtered = listings.filter(l => l.id !== postId);
+    saveListings(filtered);
+    showToast("🗑️ Post deleted");
+    renderListings();
+    updateStats();
+}
+
+/* ==============================================================
+   CATEGORY DROPDOWN POPULATOR
+   ============================================================== */
+
+function populateCategoryDropdown(selectId) {
+    const sel = document.getElementById(selectId);
+    if (!sel) return;
+    sel.innerHTML = '<option value="">-- Category Chunein --</option>';
+    CATEGORIES.forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat.id;
+        opt.textContent = cat.icon + " " + cat.name + " / " + cat.hindi;
+        sel.appendChild(opt);
+    });
+}
+
+/* ==============================================================
+   RENDERING FUNCTIONS
+   ============================================================== */
+
+/**
+ * Render category grid on homepage
+ */
+function renderCategoryGrid() {
+    const grid = document.getElementById('categoryGrid');
+    grid.innerHTML = '';
+    CATEGORIES.forEach(cat => {
+        const card = document.createElement('div');
+        card.className = 'category-card' + (appState.activeCategory === cat.id ? ' selected' : '');
+        card.innerHTML = `
+            <span class="cat-icon">${cat.icon}</span>
+            <span class="cat-name">${cat.name.split('/')[0].trim()}<br><small>${cat.hindi}</small></span>
+        `;
+        card.onclick = function() {
+            appState.activeCategory = cat.id;
+            switchPage('services');
+            filterByCategory(cat.id);
+        };
+        grid.appendChild(card);
+    });
+}
+
+/**
+ * Render filter bar on services page
+ */
+function renderFilterBar() {
+    const bar = document.getElementById('filterBar');
+    bar.innerHTML = '<span class="filter-chip active" data-cat="all" onclick="filterByCategory(\'all\')">🏷️ All</span>';
+    CATEGORIES.forEach(cat => {
+        const chip = document.createElement('span');
+        chip.className = 'filter-chip' + (appState.activeCategory === cat.id ? ' active' : '');
+        chip.dataset.cat = cat.id;
+        chip.textContent = cat.icon + " " + cat.name.split('/')[0].trim();
+        chip.onclick = function() { filterByCategory(cat.id); };
+        bar.appendChild(chip);
+    });
+}
+
+/**
+ * Filter by category
+ */
+function filterByCategory(catId) {
+    appState.activeCategory = catId;
+
+    // Update UI chips
+    document.querySelectorAll('#filterBar .filter-chip').forEach(chip => {
+        chip.classList.toggle('active', chip.dataset.cat === catId);
+    });
+
+    renderServiceListings();
+}
+
+/**
+ * Filter by type (provider/seeker/all)
+ */
+function filterByType(type) {
+    appState.activeType = type;
+
+    // Update UI chips
+    document.querySelectorAll('[data-type]').forEach(chip => {
+        chip.classList.toggle('active', chip.dataset.type === type);
+    });
+
+    renderServiceListings();
+}
+
+/**
+ * Render listings based on current filters
+ */
+function renderListings() {
+    renderHomeListings();
+    renderServiceListings();
+    renderMyPosts();
+}
+
+/**
+ * Render home page listings (recent)
+ */
+function renderHomeListings() {
+    const container = document.getElementById('homeListings');
+    let listings = getFilteredListings();
+    listings = listings.slice(0, 6); // Show only 6 on home
+
+    if (listings.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <div class="empty-icon">📭</div>
+                <p>Koi listing nahi mili<br>No listings found for selected area</p>
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = listings.map(l => renderListingCard(l, false)).join('');
+}
+
+/**
+ * Render service page listings (all, with filters)
+ */
+function renderServiceListings() {
+    const container = document.getElementById('serviceListings');
+    let listings = getFilteredListings();
+
+    // Apply category filter
+    if (appState.activeCategory !== 'all') {
+        listings = listings.filter(l => l.category === appState.activeCategory);
+    }
+
+    // Apply type filter
+    if (appState.activeType !== 'all') {
+        listings = listings.filter(l => l.type === appState.activeType);
+    }
+
+    // Apply search
+    if (appState.searchQuery) {
+        const q = appState.searchQuery.toLowerCase();
+        listings = listings.filter(l =>
+            l.title.toLowerCase().includes(q) ||
+            l.desc.toLowerCase().includes(q) ||
+            l.userName.toLowerCase().includes(q) ||
+            (l.thana && l.thana.toLowerCase().includes(q)) ||
+            (l.village && l.village.toLowerCase().includes(q)) ||
+            (getCategoryById(l.category).name.toLowerCase().includes(q)) ||
+            (getCategoryById(l.category).hindi.includes(q))
+        );
+    }
+
+    if (listings.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <div class="empty-icon">🔍</div>
+                <p>Is filter mein koi listing nahi mili<br>Try changing filters or location</p>
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = listings.map(l => renderListingCard(l, false)).join('');
+}
+
+/**
+ * Render My Posts page
+ */
+function renderMyPosts() {
+    const container = document.getElementById('myPostsContainer');
+
+    if (!appState.currentUser) {
+        container.innerHTML = `
+            <div class="login-banner">
+                <h3>🔐 Login Required</h3>
+                <p>Apni posts dekhne ke liye login karein</p>
+                <button class="btn-primary" onclick="openModal('loginModal')">Login / Register</button>
+            </div>
+        `;
+        return;
+    }
+
+    const allListings = getAllListings();
+    const myListings = allListings.filter(l => l.userId === appState.currentUser.id);
+
+    if (myListings.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <div class="empty-icon">📝</div>
+                <p>Aapne abhi tak koi post nahi kiya<br>FAB button (+) dabayein post karne ke liye</p>
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = myListings.map(l => renderListingCard(l, true)).join('');
+}
+
+/**
+ * Get filtered listings based on location
+ */
+function getFilteredListings() {
+    let listings = getAllListings();
+
+    if (appState.selectedThana) {
+        listings = listings.filter(l => l.thana === appState.selectedThana);
+    }
+
+    if (appState.selectedVillage) {
+        listings = listings.filter(l => l.village === appState.selectedVillage);
+    }
+
+    return listings;
+}
+
+/**
+ * Render a single listing card
+ */
+function renderListingCard(listing, showOwnerActions) {
+    const cat = getCategoryById(listing.category);
+    const isOwner = appState.currentUser && listing.userId === appState.currentUser.id;
+
+    const ownerActionsHtml = (showOwnerActions && isOwner) ? `
+        <div class="listing-owner-actions">
+            <button class="btn-edit" onclick="openPostModal('${listing.id}')" title="Edit">✏️</button>
+            <button class="btn-delete" onclick="deletePost('${listing.id}')" title="Delete">🗑️</button>
+        </div>
+    ` : '';
+
+    return `
+        <div class="listing-card">
+            ${ownerActionsHtml}
+            <div class="listing-header">
+                <span class="listing-badge ${listing.type === 'provider' ? 'badge-provider' : 'badge-seeker'}">
+                    ${listing.type === 'provider' ? '🟢 Provider / सेवा प्रदाता' : '🟠 Seeker / सेवा चाहिए'}
+                </span>
+                <span class="listing-category">${cat.icon} ${cat.name}</span>
+            </div>
+            <div class="listing-title">${escapeHtml(listing.title)}</div>
+            <div class="listing-desc">${escapeHtml(listing.desc)}</div>
+            ${listing.price ? `<div class="listing-price">💰 ${escapeHtml(listing.price)}</div>` : ''}
+            <div class="listing-location">
+                📍 ${escapeHtml(listing.village || '')}${listing.village && listing.thana ? ', ' : ''}${escapeHtml(listing.thana || 'Ghazipur')}
+                &nbsp;·&nbsp; 👤 ${escapeHtml(listing.userName)}
+                &nbsp;·&nbsp; 🕐 ${timeAgo(listing.timestamp)}
+            </div>
+            <div class="listing-actions">
+                <a href="tel:${listing.phone}" class="btn-call">📞 Call Karein</a>
+                <a href="https://wa.me/91${listing.phone}?text=${encodeURIComponent('Namaste! Maine aapki listing dekhi Ghazipur Seva Setu pe: ' + listing.title)}" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Escape HTML entities
+ */
+function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+/* ==============================================================
+   SEARCH HANDLER
+   ============================================================== */
+
+function handleSearch() {
+    appState.searchQuery = document.getElementById('searchInput').value.trim();
+    // If on home page, switch to services for full search
+    if (appState.activePage === 'home' && appState.searchQuery) {
+        switchPage('services');
+    }
+    renderServiceListings();
+}
+
+/* ==============================================================
+   PAGE SWITCHING
+   ============================================================== */
+
+function switchPage(pageName) {
+    appState.activePage = pageName;
+
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+    // Show target page
+    const target = document.getElementById('page-' + pageName);
+    if (target) target.classList.add('active');
+
+    // Update nav
+    document.querySelectorAll('.nav-item').forEach(n => {
+        n.classList.toggle('active', n.dataset.page === pageName);
+    });
+    document.querySelectorAll('.bottom-nav-item').forEach(n => {
+        n.classList.toggle('active', n.dataset.page === pageName);
+    });
+
+    // Render page-specific content
+    if (pageName === 'services') {
+        renderFilterBar();
+        renderServiceListings();
+    } else if (pageName === 'myPosts') {
+        renderMyPosts();
+    } else if (pageName === 'profile') {
+        renderProfile();
+    } else if (pageName === 'home') {
+        renderHomeListings();
+    }
+
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
+
+/* ==============================================================
+   PROFILE PAGE
+   ============================================================== */
+
+function renderProfile() {
+    const container = document.getElementById('profileContent');
+    const user = appState.currentUser;
+
+    if (!user) {
+        container.innerHTML = `
+            <div class="login-banner" style="margin-top:40px;">
+                <h3>🔐 Login / Register Karein</h3>
+                <p>अपनी profile dekhne aur posts karne ke liye login karein</p>
+                <button class="btn-primary" onclick="openModal('loginModal')">👤 Login / Register</button>
+            </div>
+        `;
+        return;
+    }
+
+    const cat = getCategoryById(user.category);
+    const roleText = user.role === 'provider' ? '🟢 Seva Provider / सेवा प्रदाता' : '🟠 Seva Seeker / सेवा चाहने वाला';
+
+    const userListings = JSON.parse(localStorage.getItem('gzp_listings') || '[]');
+    const myCount = userListings.filter(l => l.userId === user.id).length;
+
+    container.innerHTML = `
+        <div class="profile-header">
+            <div class="profile-avatar">👤</div>
+            <div class="profile-name">${escapeHtml(user.name)}</div>
+            <div class="profile-location">📍 ${escapeHtml(user.village || '')}${user.village ? ', ' : ''}${escapeHtml(user.thana || 'Ghazipur')}</div>
+            <div class="profile-role">${roleText}</div>
+        </div>
+        <div class="profile-menu">
+            <div class="profile-menu-item">
+                <span class="pm-icon">📱</span>
+                <span class="pm-text">Mobile: ${user.mobile}</span>
+            </div>
+            <div class="profile-menu-item">
+                <span class="pm-icon">🏛️</span>
+                <span class="pm-text">Thana: ${escapeHtml(user.thana) || 'Not set'}</span>
+            </div>
+            <div class="profile-menu-item">
+                <span class="pm-icon">🏘️</span>
+                <span class="pm-text">Village: ${escapeHtml(user.village) || 'Not set'}</span>
+            </div>
+            ${user.role === 'provider' && user.category ? `
+            <div class="profile-menu-item">
+                <span class="pm-icon">${cat.icon}</span>
+                <span class="pm-text">Category: ${cat.name}</span>
+            </div>
+            ` : ''}
+            <div class="profile-menu-item" onclick="switchPage('myPosts')">
+                <span class="pm-icon">📋</span>
+                <span class="pm-text">My Posts (${myCount})</span>
+                <span class="pm-arrow">▶</span>
+            </div>
+            <div class="profile-menu-item" onclick="openPostModal()">
+                <span class="pm-icon">➕</span>
+                <span class="pm-text">Post New Service / Need</span>
+                <span class="pm-arrow">▶</span>
+            </div>
+            <div class="profile-menu-item" onclick="openModal('locationModal')">
+                <span class="pm-icon">📍</span>
+                <span class="pm-text">Change Location</span>
+                <span class="pm-arrow">▶</span>
+            </div>
+            <div class="profile-menu-item" onclick="logout()" style="border-color: #fce8e6;">
+                <span class="pm-icon">🚪</span>
+                <span class="pm-text" style="color: var(--red);">Logout</span>
+            </div>
+        </div>
+    `;
+}
+
+/* ==============================================================
+   STATS UPDATE
+   ============================================================== */
+
+function updateStats() {
+    const allListings = getAllListings();
+    const providers = allListings.filter(l => l.type === 'provider').length;
+
+    document.getElementById('statProviders').textContent = providers;
+    document.getElementById('statListings').textContent = allListings.length;
+}
+
+/* ==============================================================
+   INITIALIZATION
+   ============================================================== */
+
+function init() {
+    // Load current user
+    appState.currentUser = getCurrentUser();
+    updateUIForUser();
+
+    // If user has location, set it
+    if (appState.currentUser) {
+        appState.selectedThana = appState.currentUser.thana || "";
+        appState.selectedVillage = appState.currentUser.village || "";
+        updateLocationDisplay();
+    }
+
+    // Populate location modal dropdowns
+    populateThanaDropdown('loc');
+    populateThanaDropdown('reg');
+    populateThanaDropdown('post');
+    populateCategoryDropdown('postCategory');
+    populateCategoryDropdown('regCategory');
+
+    // Render UI
+    renderCategoryGrid();
+    renderListings();
+    updateStats();
+}
+
+// Run init when DOM is ready
+document.addEventListener('DOMContentLoaded', init);
+</script>
+
+<script>
+/* ============================
+   ADMIN + INCOME UPGRADE SYSTEM
+   Readymade Ghazipur Upgrade
+   ============================ */
+
+// ===== ADMIN CONFIG =====
+const ADMIN_CREDENTIALS = {
+    username: "8416952828",
+    password: "ghazipuradmin@"
+};
+
+const FEATURED_PRICE = 49;
+const ADMIN_UPI = "8416952828-4@ibl";
+
+// Add featured + ad settings storage
+function getAdminSettings() {
+    return JSON.parse(localStorage.getItem("gzp_admin_settings") || JSON.stringify({
+        adText: "📢 Sponsored: Aapka Business Yahan Promote Karein - Contact Admin",
+    }));
+}
+
+function saveAdminSettings(settings) {
+    localStorage.setItem("gzp_admin_settings", JSON.stringify(settings));
+}
+
+// Extend listings with featured
+function getUserListingsRaw() {
+    return JSON.parse(localStorage.getItem('gzp_listings') || '[]');
+}
+
+// Override original getAllListings with featured priority
+const originalGetAllListings = getAllListings;
+getAllListings = function() {
+    const userListings = getUserListingsRaw();
+    const all = [...userListings, ...SAMPLE_LISTINGS];
+
+    return all.sort((a, b) => {
+        const fa = a.featured ? 1 : 0;
+        const fb = b.featured ? 1 : 0;
+        if (fa !== fb) return fb - fa; // featured first
+        return b.timestamp - a.timestamp;
+    });
+};
+
+// ===== SECRET ADMIN ACCESS (#admin) =====
+function checkAdminHash() {
+    if (window.location.hash === "#admin") {
+        openAdminLogin();
+    }
+}
+
+window.addEventListener("hashchange", checkAdminHash);
+document.addEventListener("DOMContentLoaded", checkAdminHash);
+
+// ===== ADMIN LOGIN MODAL =====
+function openAdminLogin() {
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay show";
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🔐 Admin Login</h2>
+                <button class="modal-close" onclick="this.closest('.modal-overlay').remove()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input class="form-control" id="adminUser">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" id="adminPass">
+                </div>
+                <button class="btn-primary" onclick="handleAdminLogin()">Login</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+function handleAdminLogin() {
+    const u = document.getElementById("adminUser").value;
+    const p = document.getElementById("adminPass").value;
+
+    if (u === ADMIN_CREDENTIALS.username && p === ADMIN_CREDENTIALS.password) {
+        showToast("👑 Admin Login Successful");
+        document.querySelector(".modal-overlay").remove();
+        openAdminPanel();
+    } else {
+        showToast("❌ Wrong Admin Credentials");
+    }
+}
+
+// ===== ADMIN PANEL =====
+function openAdminPanel() {
+    const listings = getAllListings();
+    const settings = getAdminSettings();
+
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay show";
+    modal.innerHTML = `
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>👑 Admin Dashboard - Readymade Ghazipur</h2>
+            <button class="modal-close" onclick="this.closest('.modal-overlay').remove()">✕</button>
+        </div>
+        <div class="modal-body">
+            <div class="info-box">
+                💰 Featured Price: ₹${FEATURED_PRICE}<br>
+                UPI: ${ADMIN_UPI}
+            </div>
+
+            <h3>📢 Ad Banner Text</h3>
+            <input class="form-control" id="adminAdText" value="${settings.adText}">
+            <button class="btn-secondary mt-8" onclick="saveAdText()">Save Ad Banner</button>
+
+            <h3 class="mt-16">📋 All Listings (${listings.length})</h3>
+            <div style="max-height:300px;overflow:auto;">
+                ${listings.map(l => `
+                    <div style="border:1px solid #ddd;padding:8px;margin-bottom:8px;border-radius:8px;">
+                        <b>${l.title}</b><br>
+                        👤 ${l.userName || "Sample"}<br>
+                        ${l.featured ? "⭐ FEATURED" : ""}
+                        <div style="margin-top:6px;">
+                            <button onclick="adminFeature('${l.id}')" class="header-btn">⭐ Feature</button>
+                            <button onclick="adminDelete('${l.id}')" class="header-btn">🗑 Delete</button>
+                        </div>
+                    </div>
+                `).join("")}
+            </div>
+        </div>
+    </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+function saveAdText() {
+    const txt = document.getElementById("adminAdText").value;
+    const s = getAdminSettings();
+    s.adText = txt;
+    saveAdminSettings(s);
+    showToast("✅ Ad Banner Updated");
+    location.reload();
+}
+
+// ===== ADMIN ACTIONS =====
+function adminFeature(id) {
+    const listings = getUserListingsRaw();
+    const idx = listings.findIndex(l => l.id === id);
+    if (idx !== -1) {
+        listings[idx].featured = !listings[idx].featured;
+        saveListings(listings);
+        showToast("⭐ Featured Status Updated");
+        renderListings();
+    } else {
+        showToast("Sample post feature toggle not allowed");
+    }
+}
+
+function adminDelete(id) {
+    if (!confirm("Delete this post?")) return;
+    const listings = getUserListingsRaw().filter(l => l.id !== id);
+    saveListings(listings);
+    showToast("🗑 Deleted by Admin");
+    renderListings();
+}
+
+// ===== ADD FEATURED BUTTON IN CARDS =====
+const originalRenderCard = renderListingCard;
+renderListingCard = function(listing, showOwnerActions) {
+    let card = originalRenderCard(listing, showOwnerActions);
+
+    const featuredBadge = listing.featured 
+        ? `<div style="position:absolute;left:10px;top:10px;background:gold;padding:3px 8px;border-radius:12px;font-size:11px;">⭐ Featured</div>`
+        : "";
+
+    const featuredBtn = `
+        <button onclick="payForFeatured('${listing.id}')" 
+        style="margin-top:6px;background:#ff9933;color:white;border:none;padding:8px;border-radius:6px;width:100%;">
+        ⭐ Featured Karein (₹${FEATURED_PRICE})
+        </button>
+    `;
+
+    card = card.replace('<div class="listing-card">', `<div class="listing-card">${featuredBadge}`);
+    card = card.replace('</div>\n            <div class="listing-actions">', `
+        ${featuredBtn}
+        </div>
+        <div class="listing-actions">
+    `);
+
+    return card;
+};
+
+// ===== UPI PAYMENT FUNCTION =====
+function payForFeatured(postId) {
+    const msg = `₹${FEATURED_PRICE} इस UPI पर भुगतान करें: ${ADMIN_UPI}\n\nभुगतान के बाद एडमिन आपकी सेवा को Featured करेगा।`;
+    alert(msg);
+
+    const upiLink = `upi://pay?pa=${ADMIN_UPI}&pn=Readymade%20Ghazipur&am=${FEATURED_PRICE}&cu=INR`;
+    window.location.href = upiLink;
+}
+
+// ===== AD BANNER ON HOME =====
+document.addEventListener("DOMContentLoaded", () => {
+    const settings = getAdminSettings();
+    const banner = document.createElement("div");
+    banner.style = "background:#fff3cd;padding:10px;margin:12px 16px;border-radius:10px;font-weight:600;";
+    banner.innerText = settings.adText;
+    const home = document.getElementById("page-home");
+    if (home) home.prepend(banner);
+});
+</script>
+
+</body>
+</html>
+```
