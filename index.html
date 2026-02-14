@@ -2598,6 +2598,64 @@ function handleRegister() {
 
     renderListings();
 }
+function renderListingCard(listing, showOwnerActions) {
+    const cat = getCategoryById(listing.category);
+    const isOwner = appState.currentUser && listing.userId === appState.currentUser.id;
+    
+    // Create a short 6-digit ID from the long ID
+    const displayId = listing.id.slice(-6).toUpperCase();
+
+    const ownerActionsHtml = (showOwnerActions && isOwner) ? `
+        <div class="listing-owner-actions">
+            <button class="btn-edit" onclick="openPostModal('${listing.id}')">✏️</button>
+            <button class="btn-delete" onclick="deletePost('${listing.id}')">🗑️</button>
+        </div>
+    ` : '';
+
+    return `
+        <div class="listing-card">
+            ${ownerActionsHtml}
+            <div class="listing-header">
+                <span class="listing-badge ${listing.type === 'provider' ? 'badge-provider' : 'badge-seeker'}">
+                    ${listing.type === 'provider' ? '🟢 Provider' : '🟠 Seeker'}
+                </span>
+                <span style="font-size: 0.7rem; color: var(--gray-500); font-weight:bold;">ID: #${displayId}</span>
+            </div>
+            <div class="listing-title">${escapeHtml(listing.title)}</div>
+            <div class="listing-desc">${escapeHtml(listing.desc)}</div>
+            ${listing.price ? `<div class="listing-price">💰 ${escapeHtml(listing.price)}</div>` : ''}
+            <div class="listing-location">
+                📍 ${escapeHtml(listing.village || '')}, ${escapeHtml(listing.thana || 'Ghazipur')}
+                &nbsp;·&nbsp; 🕐 ${timeAgo(listing.timestamp)}
+            </div>
+            <div class="listing-actions">
+                <a href="tel:${listing.phone}" class="btn-call">📞 Call</a>
+                <button onclick="sharePost('${displayId}', '${escapeHtml(listing.title)}')" class="btn-secondary" style="margin-top:0; flex:1;">📤 Share</button>
+            </div>
+            <a href="https://wa.me/91${listing.phone}?text=${encodeURIComponent('Namaste! I saw your post [ID: #' + displayId + '] on Ghazipur Seva Setu: ' + listing.title)}" 
+               target="_blank" class="btn-whatsapp" style="margin-top:8px;">
+               💬 WhatsApp Chat
+            </a>
+        </div>
+    `;
+}
+
+function sharePost(id, title) {
+    const text = `*Ghazipur Seva Setu*\n📌 *Service:* ${title}\n🆔 *Post ID:* #${id}\n\nCheck it out here:`;
+    const url = window.location.href;
+
+    if (navigator.share) {
+        navigator.share({ title: 'Ghazipur Seva Setu', text: text, url: url });
+    } else {
+        const dummy = document.createElement('textarea');
+        document.body.appendChild(dummy);
+        dummy.value = text + " " + url;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        showToast("Link copied! Paste it in WhatsApp.");
+    }
+}
 
 function logout() {
     localStorage.removeItem('gzp_currentUser');
